@@ -61,12 +61,15 @@ class Get extends Object implements IRequest {
             $street .= '/' . $el->AA->CO;
         }
 
-        $this->data->setIN($el->ICO)
-                ->setTIN($el->DIC)
-                ->setCity($el->AA->N)
-                ->setCompany($el->OF)
-                ->setStreet($street)
-                ->setZip($el->AA->PSC);
+        $this->data
+	        ->setIN($el->ICO)
+            ->setTIN($el->DIC)
+            ->setCity($el->AA->N)
+            ->setCompany($el->OF)
+            ->setStreet($street)
+	        ->setPerson($el->PF->KPF)
+            ->setCreated($el->DV)
+            ->setZip($el->AA->PSC);
 
         if (isset($el->ROR)) {
             $this->data->setActive($el->ROR->SOR->SSU)

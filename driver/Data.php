@@ -51,6 +51,15 @@ class Data extends Object implements \ArrayAccess, \Iterator {
         return $this->set('court', $s);
     }
 
+	public function setCreated($s) {
+		return $this->set('created', $s);
+	}
+
+	public function setPerson($s) {
+		$this->data['person'] = strval($s) == '101';
+		return $this;
+	}
+
     private function setFileNumberAndCourt() {
         if (array_key_exists('file_number', $this->data) && array_key_exists('court', $this->data)) {
             $this->data['court_all'] = $this->data['file_number'] . ', ' . $this->data['court'];
