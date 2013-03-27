@@ -35,4 +35,18 @@ class NameDriver extends \Flame\Ares\Driver\Driver
 		return (string) $url;
 	}
 
+	private function loadXML($xmlString)
+	{
+		$xml = $this->parseXml($xmlString);
+		$ns = $xml->getDocNamespaces();
+
+		$data = array();
+		$el = $xml->children($ns['are'])->Odpoved;
+		foreach($el->Zaznam as $item){
+			$data[] = $this->getData($item);
+		}
+
+		return $data;
+	}
+
 }
