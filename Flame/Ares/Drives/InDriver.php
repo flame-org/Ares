@@ -34,4 +34,16 @@ class InDriver extends \Flame\Ares\Driver\Driver
 		$url->setQuery(array('ico' => $key));
 		return (string) $url;
 	}
+
+	/**
+	 * @param $xmlSource
+	 * @return Data
+	 */
+	private function loadXML($xmlSource)
+	{
+		$xml = $this->parseXml($xmlSource);
+		$ns = $xml->getDocNamespaces();
+		$el = $xml->children($ns['are'])->children($ns['D'])->VBAS;
+		return $this->getData($el);
+	}
 }

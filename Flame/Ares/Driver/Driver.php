@@ -27,43 +27,38 @@ abstract class Driver extends \Nette\Object implements IDriver
 	}
 
 	/**
-	 * @param $xmlSource
-	 * @return Data
+	 * @param $xmlEl
+	 * @return \Flame\Ares\Types\Data
 	 */
-	public function loadXML($xmlSource)
+	protected function getData($xmlEl)
 	{
-		$xml = $this->parseXml($xmlSource);
-
-		$ns = $xml->getDocNamespaces();
-		$el = $xml->children($ns['are'])->children($ns['D'])->VBAS;
-
 		$data = new \Flame\Ares\Types\Data;
 
-		if (!isset($el->ICO))
+		if (!isset($xmlEl->ICO))
 			return $data;
 
-		$street = strval($el->AD->UC);
+		$street = strval($xmlEl->AD->UC);
 		if (is_numeric($street)) {
-			$street = $el->AA->NCO . ' ' . $street;
+			$street = $xmlEl->AA->NCO . ' ' . $street;
 		}
 
-		if (isset($el->AA->CO)) {
-			$street .= '/' . $el->AA->CO;
+		if (isset($xmlEl->AA->CO)) {
+			$street .= '/' . $xmlEl->AA->CO;
 		}
 
-		$data->setIN($el->ICO)
-			->setTIN($el->DIC)
-			->setCity($el->AA->N)
-			->setCompany($el->OF)
+		$data->setIN($xmlEl->ICO)
+			->setTIN($xmlEl->DIC)
+			->setCity($xmlEl->AA->N)
+			->setCompany($xmlEl->OF)
 			->setStreet($street)
-			->setPerson($el->PF->KPF)
-			->setCreated($el->DV)
-			->setZip($el->AA->PSC);
+			->setPerson($xmlEl->PF->KPF)
+			->setCreated($xmlEl->DV)
+			->setZip($xmlEl->AA->PSC);
 
-		if (isset($el->ROR)) {
-			$data->setActive($el->ROR->SOR->SSU)
-				->setFileNumber($el->ROR->SZ->OV)
-				->setCourt($el->ROR->SZ->SD->T);
+		if (isset($xmlEl->ROR)) {
+			$data->setActive($xmlEl->ROR->SOR->SSU)
+				->setFileNumber($xmlEl->ROR->SZ->OV)
+				->setCourt($xmlEl->ROR->SZ->SD->T);
 		}
 
 		return $data;
