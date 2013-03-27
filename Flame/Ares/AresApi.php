@@ -26,7 +26,7 @@ class AresApi extends Object
 
 	/**
 	 * @param $inn
-	 * @return Driver\Data|object
+	 * @return mixed
 	 */
 	public function loadData($inn)
     {
