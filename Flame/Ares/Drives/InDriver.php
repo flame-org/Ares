@@ -1,19 +1,19 @@
 <?php
 /**
- * NameDriver.php
+ * InDriver.php
  *
  * @author  Jiří Šifalda <sifalda.jiri@gmail.com>
  * @date    27.03.13
  */
 
-namespace Flame\Ares\Driver;
+namespace Flame\Ares\Drives;
 
-class NameDriver extends Driver
+class InDriver extends \Flame\Ares\Driver\Driver
 {
 
 	/**
 	 * @param string $inn
-	 * @return Data
+	 * @return Data|object
 	 */
 	public function loadData($inn)
 	{
@@ -29,8 +29,7 @@ class NameDriver extends Driver
 	public function getRequestUrl($key)
 	{
 		$url = new \Nette\Http\Url(self::URL);
-		$url->setQuery(array('obchodni_firma' => $key));
+		$url->setQuery(array('ico' => $key));
 		return (string) $url;
 	}
-
 }

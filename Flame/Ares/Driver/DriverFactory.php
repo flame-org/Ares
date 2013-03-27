@@ -29,9 +29,9 @@ class DriverFactory extends \Nette\Object
 	public function getDriver($key)
 	{
 		if($this->number->verify($key)){
-			return new InDriver;
+			return new \Flame\Ares\Drives\InDriver;
 		}else{
-			return new NameDriver;
+			return new \Flame\Ares\Drives\NameDriver;
 		}
 	}
 
