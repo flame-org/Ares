@@ -29,7 +29,7 @@ class NameDriver extends \Flame\Ares\Driver\Driver
 	public function getRequestUrl($key)
 	{
 		$url = new \Nette\Http\Url(self::URL);
-		$url->setQuery(array('obchodni_firma' => $key));
+		$url->setQuery(array('obchodni_firma' => urlencode($key)));
 		return (string) $url;
 	}
 
