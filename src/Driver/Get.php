@@ -1,11 +1,8 @@
 <?php
 
-namespace h4kuna\Ares;
+namespace Flame\Ares\Driver;
 
 use Nette\Object;
-
-require_once 'IRequest.php';
-require_once 'Data.php';
 
 /**
  * Description of Get
@@ -39,7 +36,7 @@ class Get extends Object implements IRequest {
         if ($xmlSource) {
             $xml = @simplexml_load_string($xmlSource);
             if (!$xml) {
-                throw new \h4kuna\AresException('No response.', 404);
+                throw new \Flame\Ares\AresException('No response.', 404);
             }
         } else {
             $curl->getErrors();
@@ -83,7 +80,7 @@ class Get extends Object implements IRequest {
     private function setIN($inn) {
         $this->IN = new \h4kuna\Int($inn);
         if (!preg_match('~^\d{6,9}$~', $this->IN->getValue())) {
-            throw new \h4kuna\AresException('IN must be a number');
+            throw new \Flame\Ares\AresException('IN must be a number');
         }
         return TRUE;
     }

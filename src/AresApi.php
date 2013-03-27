@@ -1,10 +1,8 @@
 <?php
 
-namespace h4kuna;
+namespace Flame\Ares;
 
 use Nette\Object;
-
-require_once 'driver/Get.php';
 
 /**
  * @author Milan Matějček <milan.matejcek@gmail.com>
@@ -13,14 +11,14 @@ require_once 'driver/Get.php';
   $ares = new Ares;
   var_dump($ares->loadData('87744473'));
  */
-class Ares extends Object {
+class AresApi extends Object {
 
-    /** @var Ares\IRequest */
+    /** @var \Flame\Ares\Driver\IRequest */
     private $class;
 
-    public function __construct(Ares\IRequest $obj = NULL) {
+    public function __construct(\Flame\Ares\Driver\IRequest $obj = NULL) {
         if ($obj === NULL) {
-            $obj = new Ares\Get();
+            $obj = new \Flame\Ares\Driver\Get();
         }
 
         $this->class = $obj;
