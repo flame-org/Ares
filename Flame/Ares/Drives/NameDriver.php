@@ -47,7 +47,10 @@ class NameDriver extends \Flame\Ares\Driver\Driver
 		$data = array();
 		$el = $xml->children($ns['are'])->Odpoved;
 		foreach($el->Zaznam as $item){
-			$data[] = $this->getData($item);
+			$val = new \Flame\Ares\Types\Data;
+			$val->setCompany($item->Obchodni_firma);
+			$val->setIN($item->ICO);
+			$data[] = $val;
 		}
 
 		return $data;
