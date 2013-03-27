@@ -15,7 +15,7 @@ class InDriver extends \Flame\Ares\Driver\Driver
 
 	/**
 	 * @param string $inn
-	 * @return Data|object
+	 * @return \Flame\Ares\Types\Data
 	 */
 	public function loadData($inn)
 	{
@@ -37,7 +37,7 @@ class InDriver extends \Flame\Ares\Driver\Driver
 
 	/**
 	 * @param $xmlSource
-	 * @return Data
+	 * @return \Flame\Ares\Types\Data
 	 */
 	private function loadXML($xmlSource)
 	{

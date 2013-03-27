@@ -9,11 +9,11 @@ namespace Flame\Ares\Driver;
  */
 interface IDriver {
 
-    /**
-     * @param string $in Identification Number
-     * @return Data
-     */
-    public function loadData($in);
+	/**
+	 * @param string $in
+	 * @return \Flame\Ares\Types\Data
+	 */
+	public function loadData($in);
 
 	/**
 	 * Return url service

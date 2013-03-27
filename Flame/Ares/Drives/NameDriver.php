@@ -15,7 +15,7 @@ class NameDriver extends \Flame\Ares\Driver\Driver
 
 	/**
 	 * @param string $inn
-	 * @return Data
+	 * @return array|\Flame\Ares\Types\Data
 	 */
 	public function loadData($inn)
 	{
@@ -35,6 +35,10 @@ class NameDriver extends \Flame\Ares\Driver\Driver
 		return (string) $url;
 	}
 
+	/**
+	 * @param $xmlString
+	 * @return array
+	 */
 	private function loadXML($xmlString)
 	{
 		$xml = $this->parseXml($xmlString);
