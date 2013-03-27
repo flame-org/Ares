@@ -52,7 +52,7 @@ class Data extends Object implements \ArrayAccess, \Iterator {
     }
 
 	public function setCreated($s) {
-		return $this->set('created', $s);
+		return $this->set('created', new \DateTime($s));
 	}
 
 	public function setPerson($s) {
@@ -67,7 +67,12 @@ class Data extends Object implements \ArrayAccess, \Iterator {
     }
 
     private function set($key, $val) {
-        $this->data[$key] = strval($val);
+	    if($val instanceof \DateTime){
+		    $this->data[$key] = $val;
+	    }else{
+		    $this->data[$key] = strval($val);
+	    }
+
         return $this;
     }
 
