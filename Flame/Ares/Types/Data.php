@@ -9,7 +9,7 @@ use Nette\Object;
  *
  * @author milan
  */
-class Data extends Object implements \ArrayAccess, \Iterator {
+class Data extends Object implements \ArrayAccess, \Iterator, \Countable {
 
     private $data = array();
 
@@ -147,5 +147,9 @@ class Data extends Object implements \ArrayAccess, \Iterator {
         return array_key_exists($this->key(), $this->data);
     }
 
+	// ---------------- Countable
+	public function count() {
+		return count($this->data);
+	}
 }
 
