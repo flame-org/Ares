@@ -22,6 +22,6 @@
         "h4kuna/data-type": "1.0.*"
     },
     "autoload": {
-		"psr-0": {"Flame\Ares": "src"}
+		"psr-0": {"Flame\\Ares": "src/"}
     }
 }
