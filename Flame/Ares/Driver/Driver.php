@@ -11,8 +11,6 @@ namespace Flame\Ares\Driver;
 abstract class Driver extends \Nette\Object implements IDriver
 {
 
-	const URL = 'http://wwwinfo.mfcr.cz/cgi-bin/ares/darv_bas.cgi';
-
 	/**
 	 * @param $url
 	 * @return string

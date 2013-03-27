@@ -11,6 +11,8 @@ namespace Flame\Ares\Drives;
 class NameDriver extends \Flame\Ares\Driver\Driver
 {
 
+	const URL = 'http://wwwinfo.mfcr.cz/cgi-bin/ares/darv_std.cgi';
+
 	/**
 	 * @param string $inn
 	 * @return Data
