@@ -1,6 +1,6 @@
 <?php
 
-namespace Flame\Ares\Driver;
+namespace Flame\Ares\Types;
 
 use Nette\Object;
 

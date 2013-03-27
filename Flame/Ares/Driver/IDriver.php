@@ -7,18 +7,19 @@ namespace Flame\Ares\Driver;
  *
  * @author Milan Matějček
  */
-interface IRequest {
+interface IDriver {
 
     /**
      * @param string $in Identification Number
      * @return Data
      */
-    public function loadData($in = NULL);
+    public function loadData($in);
 
-    /**
-     * clean last request
-     * @void
-     */
-    public function clean();
+	/**
+	 * Return url service
+	 * @param $key
+	 * @return string
+	 */
+	public function getRequestUrl($key);
 }
 

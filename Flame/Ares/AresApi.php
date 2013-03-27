@@ -11,26 +11,27 @@ use Nette\Object;
   $ares = new Ares;
   var_dump($ares->loadData('87744473'));
  */
-class AresApi extends Object {
+class AresApi extends Object
+{
 
-    /** @var \Flame\Ares\Driver\IRequest */
-    private $class;
+	/** @var \Flame\Ares\Driver\DriverFactory */
+	private $driverFactory;
 
-    public function __construct(\Flame\Ares\Driver\IRequest $obj = NULL) {
-        if ($obj === NULL) {
-            $obj = new \Flame\Ares\Driver\Get();
-        }
-
-        $this->class = $obj;
+	/**
+	 * @param Driver\DriverFactory $factory
+	 */
+	public function __construct(\Flame\Ares\Driver\DriverFactory $factory) {
+        $this->driverFactory = $factory;
     }
 
-    public function loadData($inn) {
-        $this->class->clean();
-        return $this->class->loadData($inn);
-    }
-
-    public function getData() {
-        return $this->class->loadData();
+	/**
+	 * @param $inn
+	 * @return Driver\Data|object
+	 */
+	public function loadData($inn)
+    {
+	    $driver = $this->driverFactory->getDriver($inn);
+        return $driver->loadData($inn);
     }
 
 }
