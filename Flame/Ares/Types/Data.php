@@ -56,7 +56,7 @@ class Data extends Object implements \ArrayAccess, \Iterator, \Countable {
 	}
 
 	public function setPerson($s) {
-		$this->data['person'] = strval($s) == '101';
+		$this->data['person'] = strval($s) <= '108';
 		return $this;
 	}
 
