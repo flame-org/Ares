@@ -110,7 +110,7 @@ class Data extends Object implements \ArrayAccess, \Iterator {
         if ($this->offsetExists($offset)) {
             return $this->data[$offset];
         }
-        throw new \h4kuna\AresException('Undefined offset: ' . $offset);
+        throw new \Flame\Ares\AresException('Undefined offset: ' . $offset);
     }
 
     public function offsetSet($offset, $value) {

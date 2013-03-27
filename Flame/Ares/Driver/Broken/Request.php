@@ -60,7 +60,7 @@ abstract class Request extends Object {
 
     public function render() {
         if (empty($this->dotaz))
-            throw new AresException('Vyplň alespoň jeden IČ.');
+            throw new \Flame\Ares\AresException('Vyplň alespoň jeden IČ.');
         foreach ($this->dotaz as $key => $val) {
             $this->xml->add('<Dotaz><Pomocne_ID>' . $key . '</Pomocne_ID><ICO>' . $val . '</ICO></Dotaz>');
         }
