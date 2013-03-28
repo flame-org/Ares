@@ -4,12 +4,11 @@ Ares
 Download information about customer via his IN.
 
 For dependency look at to composer.json
-- h4kuna/curl
-- h4kuna/data-type
+- kdyby/curl
 
 Example
 -------
 ```php
-$ares = new \h4kuna\Ares();
-$ares->loadData('87744473'); // return object \h4kuna\Ares\Data
+$ares = new \Flame\Ares\AresApi();
+$ares->loadData('87744473'); // return object \Flame\Ares\Types\Data
 ```

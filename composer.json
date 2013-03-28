@@ -19,8 +19,7 @@
     "require": {
         "php" : ">=5.3.2",
 		"nette/nette": ">=2.0.1",
-		"kdyby/curl": "@dev",
-        "h4kuna/data-type": "1.0.*"
+		"kdyby/curl": "@dev"
     },
     "autoload": {
 		"psr-0": {"Flame": ""}
