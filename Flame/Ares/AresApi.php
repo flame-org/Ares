@@ -20,7 +20,8 @@ class AresApi extends Object
 	/**
 	 * @param Driver\DriverFactory $factory
 	 */
-	public function __construct(\Flame\Ares\Driver\DriverFactory $factory) {
+	public function __construct(\Flame\Ares\Driver\DriverFactory $factory)
+	{
         $this->driverFactory = $factory;
     }
 
