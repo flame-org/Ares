@@ -16,11 +16,23 @@
 			"role": "Developer"
 		}
     ],
+
     "require": {
         "php" : ">=5.3.2",
 		"nette/nette": ">=2.0.1",
 		"kdyby/curl": "@dev"
     },
+
+	"config": {
+		"vendor-dir": "libs"
+	},
+
+	"require-dev": {
+		"nette/tester": "@dev",
+		"janmarek/mockista": "@dev",
+		"flame/framework": ">=3.6.1"
+	},
+
     "autoload": {
 		"psr-0": {"Flame": ""}
     }
