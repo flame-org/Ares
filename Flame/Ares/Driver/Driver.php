@@ -18,12 +18,12 @@ abstract class Driver extends \Nette\Object implements IDriver
 	 */
 	public function getRequestResponse($url)
 	{
-		try {
-			$conn = new \Kdyby\Curl\Request($url);
-			return $conn->get()->getResponse();
-		} catch (\Kdyby\Curl\CurlException $ex) {
-			throw new \Flame\Ares\AresException($ex->getMessage());
-		}
+		$res = @file_get_contents($url);
+
+		if(!$res)
+			throw new \Flame\Ares\AresException('No respponse from ' . $url);
+
+		return $res;
 	}
 
 	/**

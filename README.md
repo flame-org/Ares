@@ -4,7 +4,6 @@ Ares
 Download information about customer via his IN.
 
 For dependency look at to composer.json
-- kdyby/curl
 
 Example
 -------
